@@ -12,6 +12,12 @@
 int _withformat(const char *format, int i, int count, va_list valist)
 {
 	/*HERE THE DIFERENT IDENTIFIERS*/
+	/*Scaping double %%*/
+	if (format[i + 1] == '%')
+	{
+		int c = format[i + 1];
+		_putchar(c);
+	}
 	/*FOR CHARACTERS (%c)*/
 	if (format[i + 1] == 'c')
 	{
