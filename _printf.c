@@ -28,12 +28,17 @@ int _withformat(const char *format, int i, int count, va_list valist)
 		_putchar(c);
 		count++;
 	}
-	/*TODO:DIEGO please make sure this work properlly (%s)*/
+	/*For Strings (%s)*/
 	if (format[i + 1] == 's')
 	{
-		char s = va_arg(valist, char*);
-
-		_putchar(s);
+		char *s;
+		s = va_arg(valist, char*);
+		while(*s != '\0')
+		{
+			_putchar(*s);
+			s++;
+			count++;
+		}
 	}
 	/*The formats "%i" and "%d" do the same when it comes to printf*/
 	if (format[i + 1] == 'i' || format[i + 1] == 'd')
