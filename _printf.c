@@ -46,7 +46,6 @@ int _withformat(const char *format, int i, int count, va_list valist)
 			_putchar('0');
 		} else
 			count += print_number(n); /*We did this fucntion in the past*/
-
 	}
 	/*Print octal numbers "%o"*/
 	if (format[i + 1] == 'o')
@@ -55,6 +54,13 @@ int _withformat(const char *format, int i, int count, va_list valist)
 		int octalNumber;
 
 		count += print_octal(n); /*Fuction that gets octal*/
+	}
+	/*Print unsigned ints "%u"*/
+	if (format[i + 1] == 'u')
+	{
+		unsigned int n = va_arg(valist, unsigned int);
+
+		count += print_unsig(n);
 	}
 	return (count);
 }
