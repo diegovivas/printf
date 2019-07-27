@@ -52,7 +52,9 @@ int _withformat(const char *format, int i, int count, va_list valist)
 	if (format[i + 1] == 'o')
 	{
 		int n = va_arg(valist, int);
-		count += print_octal(n); /*Fuction that prints octal*/
+		int octalNumber;
+
+		count += print_octal(n); /*Fuction that gets octal*/
 	}
 	return (count);
 }

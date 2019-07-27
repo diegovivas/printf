@@ -4,7 +4,7 @@
 <strong>Manual: man_3_printf</strong>
 <br>
 <table style="width:100%">
-<caption>Files and Description</caption> 
+<caption>Files and Description</caption>
  <tr>
     <th>File</th>
     <th>Description</th>
@@ -25,5 +25,9 @@
     <td>holberton.h</td>
     <td>Header file that contains our prototypes and includes.</td>
   </tr>
+  <tr>
+	<td>print_octal.c</td>
+	<td>Converts decimal to octal numbers.</td>
+  </tr>
 </table>
-<strong>Authors: <a target="n_blank" href="https://twitter.com/micael_sosa">Michael Sosa</a> and <a target="n_blank" href="https://twitter.com/rdiegovivas">Diego Vivas</a></strong>
+<strong>Authors: <a href="https://twitter.com/micael_sosa" target="_blank">Michael Sosa</a> and <a href="https://twitter.com/rdiegovivas" target="_blank">Diego Vivas</a></strong>
