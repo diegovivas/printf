@@ -40,7 +40,19 @@ int _withformat(const char *format, int i, int count, va_list valist)
 	{
 		int n = va_arg(valist, int);
 
-		count += print_number(n); /*We did this fucntion in the past*/
+		if (!n)
+		{
+			count++;
+			_putchar('0');
+		} else
+			count += print_number(n); /*We did this fucntion in the past*/
+
+	}
+	/*Print octal numbers "%o"*/
+	if (format[i + 1] == 'o')
+	{
+		int n = va_arg(valist, int);
+		count += print_octal(n); /*Fuction that prints octal*/
 	}
 	return (count);
 }

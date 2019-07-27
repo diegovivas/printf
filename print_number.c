@@ -7,18 +7,23 @@
  */
 int print_number(int n)
 {
+	int div = 1;
 	int count = 0;
-	unsigned int x = n;
 
 	if (n < 0)
 	{
-		x = ~x + 1;
+		n = ~n + 1;
 		_putchar('-');
 		count++;
 	}
-	if ((x / 10) > 0)
-		print_number(x / 10);
-	_putchar((x % 10) + '0');
-	count++;
+	while (div <= n)
+		div *= 10;
+	while (n > 0)
+	{
+		div /= 10;
+		_putchar((n / div) + '0');
+		n %= div;
+		count++;
+	}
 	return (count);
 }
