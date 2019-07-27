@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char _putchat(char c);
+int _putchar(char c);
+int print_number(int n);
 int _printf(const char *format, ...);
 
 #endif

@@ -16,7 +16,9 @@ int _withformat(const char *format, int i, int count, va_list valist)
 	if (format[i + 1] == '%')
 	{
 		int c = format[i + 1];
+
 		_putchar(c);
+		count++;
 	}
 	/*FOR CHARACTERS (%c)*/
 	if (format[i + 1] == 'c')
@@ -24,6 +26,7 @@ int _withformat(const char *format, int i, int count, va_list valist)
 		int c = va_arg(valist, int);
 
 		_putchar(c);
+		count++;
 	}
 	/*TODO:DIEGO please make sure this work properlly (%s)*/
 	if (format[i + 1] == 's')
@@ -32,19 +35,13 @@ int _withformat(const char *format, int i, int count, va_list valist)
 
 		_putchar(s);
 	}
-
-	/*TODO: DIEGO please make the function to print ints (%d)*/
-	if (format[i + 1] == 'd')
+	/*The formats "%i" and "%d" do the same when it comes to printf*/
+	if (format[i + 1] == 'i' || format[i + 1] == 'd')
 	{
+		int n = va_arg(valist, int);
 
+		count += print_number(n); /*We did this fucntion in the past*/
 	}
-
-	/*TODO: MIKE please make the function to print ints in base 10(%i)*/
-	if (format[i + 1] == 'd')
-	{
-
-	}
-
 	return (count);
 }
 
