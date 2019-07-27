@@ -29,5 +29,9 @@
 	<td>print_octal.c</td>
 	<td>Converts decimal to octal numbers.</td>
   </tr>
+  <tr>
+	<td>print_unsigned.c</td>
+	<td>Prints unsigned integers.</td>
+  </tr>
 </table>
 <strong>Authors: <a href="https://twitter.com/micael_sosa" target="_blank">Michael Sosa</a> and <a href="https://twitter.com/rdiegovivas" target="_blank">Diego Vivas</a></strong>
