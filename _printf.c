@@ -11,8 +11,9 @@
 
 int _withformat(char c, int count, va_list valist)
 {
-	int j;
+	int j, i;
 	char *s;
+	char si[6] = "(null)";
 
 	switch (c)
 	{
@@ -24,13 +25,8 @@ int _withformat(char c, int count, va_list valist)
 			s = va_arg(valist, char *);
 			if (!s)
 			{
-				_putchar('(');
-				_putchar('n');
-				_putchar('u');
-				_putchar('l');
-				_putchar('l');
-				_putchar(')');
-				count += 6;
+				for (i = 0; si[i]; i++, count++)
+					_putchar(si[i]);
 			}
 			else
 				count += _printstring(s);

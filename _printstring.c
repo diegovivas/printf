@@ -1,5 +1,9 @@
 #include "holberton.h"
-
+/**
+ *_printstring - function that print a string
+ *@s: pointer to value of each simbol of string
+ *Return: counter.
+ */
 int _printstring(char *s)
 {
 	int i = 0;
