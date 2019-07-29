@@ -6,7 +6,7 @@
  */
 int print_hexaup(unsigned int n)
 {
-	long int decimalNumber, remainder, quotient;
+	long int quotient;
 	int cont1 = 1, cont2, temp;
 	char hexadecimalNumber[100];
 	int count = 0;
