@@ -15,7 +15,7 @@ int _withformat(const char *format, int i, int count, va_list valist)
 	/*Scaping double %%*/
 	if (format[i + 1] == '%')
 	{
-		int c = format[i + 1];
+		int c = format[i];
 
 		_putchar(c);
 		count++;
@@ -56,7 +56,6 @@ int _withformat(const char *format, int i, int count, va_list valist)
 	if (format[i + 1] == 'o')
 	{
 		int n = va_arg(valist, int);
-		int octalNumber;
 
 		count += print_octal(n); /*Fuction that gets octal*/
 	}
@@ -66,6 +65,32 @@ int _withformat(const char *format, int i, int count, va_list valist)
 		unsigned int n = va_arg(valist, unsigned int);
 
 		count += print_unsig(n);
+	}
+	if (format[i + 1] == 'x')
+	{
+		unsigned int n = va_arg(valist, unsigned int);
+
+		count += print_hexalow(n);
+	}
+	if (format[i + 1] == 'X')
+	{
+		unsigned int n = va_arg(valist, unsigned int);
+
+		count += print_hexaup(n);
+	}
+	if (format[i + 1] == 'b')
+	{
+		unsigned int n = va_arg(valist, unsigned int);
+
+		count += print_bi(n);
+	}
+
+	if (format[i + 1] == '\0')
+	{
+		int c = format[i];
+
+		_putchar(c);
+		count++;
 	}
 	return (count);
 }
@@ -82,13 +107,38 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	va_start(valist, format);
+	if (format == NULL)
+		return (-1);/*if null is passed*/
 	while (format && format[i])
 	{
-		if (format[i] != '%')
+		if (format[i] != '%')/*if it is not an %*/
 		{
-			count++;
-			/*FOR NO ARGUMENTS*/
-			_putchar(format[i]);
+			if (format[i + 1] == '%')/*if next is %*/
+			{
+				switch(format[i + 2])/*if the next of %*/
+				{
+					case '\a':
+					case '\b':
+					case '\f':
+					case '\n':
+					case '\r':
+					case '\t':
+					case '\v':
+						_putchar(format[i]);
+						_putchar(format[i + 1]);
+						_putchar(format[i + 2]);
+
+						count += 3;
+						break;
+					default:/*if it's not one of the above*/
+						count++;
+						_putchar(format[i]);
+				}
+			} else/*if next is not %*/
+			{
+				count++;
+				_putchar(format[i]);
+			}
 		} else
 		{
 			/* FUCTION THAT TAKES ALL OTHER CASES WITH FORMAT*/
