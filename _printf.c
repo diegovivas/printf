@@ -12,33 +12,61 @@
 int _withformat(const char *format, int i, int count, va_list valist)
 {
 	/*HERE THE DIFERENT IDENTIFIERS*/
+	/*Scaping double %%*/
+	if (format[i + 1] == '%')
+	{
+		int c = format[i + 1];
+
+		_putchar(c);
+		count++;
+	}
 	/*FOR CHARACTERS (%c)*/
 	if (format[i + 1] == 'c')
 	{
 		int c = va_arg(valist, int);
 
 		_putchar(c);
+		count++;
 	}
-	/*TODO:DIEGO please make sure this work properlly (%s)*/
+	/*For Strings (%s)*/
 	if (format[i + 1] == 's')
 	{
-		char s = va_arg(valist, char*);
-
-		_putchar(s);
+		char *s;
+		s = va_arg(valist, char*);
+		while(*s != '\0')
+		{
+			_putchar(*s);
+			s++;
+			count++;
+		}
 	}
-
-	/*TODO: DIEGO please make the function to print ints (%d)*/
-	if (format[i + 1] == 'd')
+	/*The formats "%i" and "%d" do the same when it comes to printf*/
+	if (format[i + 1] == 'i' || format[i + 1] == 'd')
 	{
+		int n = va_arg(valist, int);
 
+		if (!n)
+		{
+			count++;
+			_putchar('0');
+		} else
+			count += print_number(n); /*We did this fucntion in the past*/
 	}
-
-	/*TODO: MIKE please make the function to print ints in base 10(%i)*/
-	if (format[i + 1] == 'd')
+	/*Print octal numbers "%o"*/
+	if (format[i + 1] == 'o')
 	{
+		int n = va_arg(valist, int);
+		int octalNumber;
 
+		count += print_octal(n); /*Fuction that gets octal*/
 	}
+	/*Print unsigned ints "%u"*/
+	if (format[i + 1] == 'u')
+	{
+		unsigned int n = va_arg(valist, unsigned int);
 
+		count += print_unsig(n);
+	}
 	return (count);
 }
 
