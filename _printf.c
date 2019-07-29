@@ -3,8 +3,7 @@
 
 /**
  * _withformat - prints depending the format
- * @format: the format sent by the main
- * @i: index of _printf loop
+ * @c: the format sent by the main
  * @count: characters printed;
  * @valist: va_list args
  * Return: @count the number of characters printed
@@ -39,7 +38,17 @@ int _withformat(char c, int count, va_list valist)
 		case '%':
 			count += _putchar('%');
 			break;
+		case 'i':
+		case 'd':
+			j = va_arg(valist, int);
 
+			if (!j)
+			{
+				count++;
+				_putchar('0');
+			} else
+				count += print_number(j);
+			break;
 		default:
 			count += 2;
 			_putchar('%');
