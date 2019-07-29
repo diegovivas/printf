@@ -1,0 +1,129 @@
+.TH man 1 "july 2019" "1.0" "_printf man page"
+.SH NAME
+.B _printf - format and print data
+.SH SYNOPSIS
+printf FORMAT [ARGUMENT]... 
+.br
+printf OPTION
+.LP
+#include "holberton.h"
+.LP
+int printf(const qchar *format, ...);
+.br
+int  _putchar(char c);
+.br
+int print_octal(unsigned int n);
+.br
+int print_number(int n);
+.br
+int print_unsig(unsigned int n);
+.LP
+#include <stdarg.h>
+.LP
+int _withformat(const char *format, int i, int count, va_list valist);
+.LP
+.SH DESCRIPTION
+    printf ARGUMENT(s) according to FORMAT.
+.LP
+The functions in our _printf() family produce output according to a format as described below. THe function _printf() write output to tsdout.   
+.LP
+.B Return value
+.br
+Upon successful return, these functions return the number of characters printed (Excluding the null byte used to end output to strings).
+.LP
+If an output error is encountered, a negative value is returned.
+.LP
+.B The conversion specifier
+.LP
+A character that specifies the type of conversion to be applied.
+.br
+the conversion specifiers and their meanings are:
+.LP
+ d, i   The  int argument is converted to signed decimal notation.  The preci‐
+              sion, if any, gives the minimum number of digits that must appear;  if
+              the  converted  value  requires fewer digits, it is padded on the left
+              with zeros.  The default precision is 1.  When 0 is  printed  with  an
+              explicit precision 0, the output is empty.
+.LP
+   s      If no l modifier is present: The const char * argument is expected  to
+              be  a  pointer  to  an  array of character type (pointer to a string).
+              Characters from the array are written up to (but not including) a ter‐
+              minating  null  byte ('\0'); if a precision is specified, no more than
+              the number specified are written.  If a precision is  given,  no  null
+              byte need be present; if the precision is not specified, or is greater
+              than the size of the array, the array must contain a terminating  null
+              byte.
+
+              If  an l modifier is present: The const wchar_t * argument is expected
+              to be a pointer to an array of wide characters.  Wide characters  from
+              the array are converted to multibyte characters (each by a call to the
+              wcrtomb(3) function, with a conversion state starting in  the  initial
+              state  before  the first wide character), up to and including a termi‐
+              nating null wide character.  The resulting  multibyte  characters  are
+              written  up  to  (but  not including) the terminating null byte.  If a
+              precision is specified, no more bytes than the  number  specified  are
+              written,  but  no partial multibyte characters are written.  Note that
+              the precision determines the number of bytes written, not  the  number
+              of wide characters or screen positions.  The array must contain a ter‐
+              minating null wide character, unless a precision is given and it is so
+              small  that  the  number of bytes written exceeds it before the end of
+              the array is reached.
+.LP
+ c      If  no  l  modifier  is  present,  the int argument is converted to an
+              unsigned char, and the resulting character is written.  If an l  modi‐
+              fier  is present, the wint_t (wide character) argument is converted to
+              a multibyte sequence by a call to the wcrtomb(3) function, with a con‐
+              version  state starting in the initial state, and the resulting multi‐
+              byte string is written.
+.LP
+ o, u, x, X
+              The unsigned int argument is converted to unsigned octal (o), unsigned
+              decimal (u), or unsigned hexadecimal (x and X) notation.  The  letters
+              abcdef  are  used for x conversions; the letters ABCDEF are used for X
+              conversions.  The precision, if any, gives the minimum number of  dig‐
+              its that must appear; if the converted value requires fewer digits, it
+              is padded on the left with zeros.  The default precision is 1.  When 0
+              is printed with an explicit precision 0, the output is empty.
+.LP
+.B FORMAT controls the output as in C printf.
+.LP
+\\" double quote
+.LP
+\\\\ backsslash
+.LP
+\\a alert (BEL)
+.LP
+\\b backspace
+.LP
+\\c produce no further output
+.LP
+\\e escape
+.LP
+\\f form feed
+.LP
+\\n new line
+.LP
+\\r carriage return
+.LP
+\\t horizontal tab
+.LP
+\\v vertical tab
+.LP
+%% a sigle %
+.LP
+\\%b ARGUMENT a a string with '\' escapes interpreted, except that octal escapes are of the form \0 \0NNN
+.LP
+.B NOTE: Shell may have its own version of printf, wich would be most extensive that this version.
+.SH EXAMPLE
+To print a integer number:
+#include "holberton.h"
+.LP
+_printf("%d", integer);
+.LP
+integer must be have a integet value.
+.SH SEE ALSO
+printf(1), printf(3)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Michael Sosa, Diego Vivas.
