@@ -6,24 +6,23 @@
  */
 int print_bi(unsigned int n)
 {
-	int array[25], cont = 0, cont2;
-	unsigned int dec;
+	unsigned int a, b, c, d, f;
 	int count = 0;
 
-	dec = n;
-	if (dec == 0)
+	b = n;
+	c = 1;
+	for (a = 1 ; b > 1 ; a++)
 	{
-		print_number(0);
+		b = b / 2;
+		c = c * 2;
+	}
+	for (f = 1; f <= a; f++)
+	{
+		d = n / c;
+		n = n % c;
+		c = c / 2;
+		_putchar(d + '0');
 		count++;
 	}
-	while (dec > 0)
-	{
-		array[cont] = dec % 2;
-		dec = dec / 2;
-		cont++;
-	}
-	for (cont2 = cont - 1; cont2 >= 0; cont2--, count++)
-		print_number(array[cont2]);
-
 	return (count);
 }
