@@ -28,7 +28,27 @@ int _withformat2(char c, int count, va_list valist)
 	case 'b':
 		k = va_arg(valist, unsigned int);
 
-		count = print_bi(k);
+		count += print_bi(k);
+		break;
+	case 'o':
+		k = va_arg(valist, unsigned int);
+
+		count += print_octal(k);
+		break;
+	case 'x':
+		k = va_arg(valist, unsigned int);
+
+		count += print_hexalow(k);
+		break;
+	case 'X':
+		k = va_arg(valist, unsigned int);
+
+		count += print_hexaup(k);
+		break;
+	case 'u':
+		k = va_arg(valist, unsigned int);
+
+		count += print_unsig(k);
 		break;
 	default:
 		count += 2;
