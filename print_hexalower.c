@@ -24,7 +24,7 @@ int print_hexalow(unsigned int n)
 		hexadecimalNumber[cont++] = temp;
 		quotient = quotient / 16;
 	}
-	for (cont2 = cont1 - 1 ; cont2 > 0; cont2--, count++)
+	for (cont2 = cont - 1 ; cont2 > 0; cont2--, count++)
 		_putchar(hexadecimalNumber[cont2]);
 
 	return (count);

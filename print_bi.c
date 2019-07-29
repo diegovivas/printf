@@ -14,12 +14,12 @@ int print_bi(unsigned int n)
 
 	while (dec > 0)
 	{
-		array[c] = dec % 2;
+		array[cont] = dec % 2;
 		dec = dec / 2;
 		cont++;
 	}
 	for (cont2 = cont - 1; cont2 >= 0; cont2--, count++)
-		print_number(a[cont2]);
+		print_number(array[cont2]);
 
 	return (count);
 }

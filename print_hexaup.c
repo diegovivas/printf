@@ -19,10 +19,10 @@ int print_hexaup(unsigned int n)
 			temp = temp + 48;
 		else
 			temp = temp + 55;
-		hexadecimalNumber[cont++] = temp;
+		hexadecimalNumber[cont1++] = temp;
 		quotient = quotient / 16;
 	}
-	for (cont2 = cont - 1; cont2 > 0; cont2--, count++)
+	for (cont2 = cont1 - 1; cont2 > 0; cont2--, count++)
 		_putchar(hexadecimalNumber[cont2]);
 
 	return (count);
