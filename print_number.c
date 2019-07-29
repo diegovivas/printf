@@ -7,22 +7,27 @@
  */
 int print_number(int n)
 {
-	int div = 1;
+	unsigned int a, b, c, d, f;
 	int count = 0;
 
 	if (n < 0)
 	{
-		n = ~n + 1;
 		_putchar('-');
-		count++;
+		n = n * -1;
 	}
-	while (div <= n)
-		div *= 10;
-	while (n > 0)
+	b = n;
+	c = 1;
+	for (a = 1 ; b > 9 ; a++)
 	{
-		div /= 10;
-		_putchar((n / div) + '0');
-		n %= div;
+		b = b / 10;
+		c = c * 10;
+	}
+	for (f = 1; f <= a; f++)
+	{
+		d = n / c;
+		n = n % c;
+		c = c / 10;
+		_putchar(d + '0');
 		count++;
 	}
 	return (count);

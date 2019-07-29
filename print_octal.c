@@ -7,13 +7,23 @@
  */
 int print_octal(unsigned int n)
 {
-	static int count = 1;
+	unsigned int a, b, c, d, f;
+	int count = 0;
 
-	count++;
-	if (n != 0)
+	b = n;
+	c = 1;
+	for (a = 1 ; b > 9 ; a++)
 	{
-		print_octal(n / 8);
-		_putchar((n % 8) + '0');
+		b = b / 8;
+		c = c * 8;
 	}
-	return (count - 2);/*It was giving to extra counts lol (MACHETASO)*/
+	for (f = 1; f <= a; f++)
+	{
+		d = n / c;
+		n = n % c;
+		c = c / 8;
+		_putchar(d + '0');
+		count++;
+	}
+	return (count);
 }
