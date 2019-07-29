@@ -23,7 +23,18 @@ int _withformat(char c, int count, va_list valist)
 			break;
 		case 's':
 			s = va_arg(valist, char *);
-			count += _printstring(s);
+			if (!s)
+			{
+				_putchar('(');
+				_putchar('n');
+				_putchar('u');
+				_putchar('l');
+				_putchar('l');
+				_putchar(')');
+				count += 6;
+			}
+			else
+				count += _printstring(s);
 			break;
 		case '%':
 			count += _putchar('%');
