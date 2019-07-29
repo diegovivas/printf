@@ -13,9 +13,7 @@ int print_bi(unsigned int n)
 	dec = n;
 	if (dec == 0)
 	{
-		cont2 = 0;
-		array[cont2] = 0;
-		print_number(array[cont2]);
+		print_number(0);
 		count++;
 	}
 	while (dec > 0)
