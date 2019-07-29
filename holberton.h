@@ -11,5 +11,6 @@ int print_unsig(unsigned int n);
 int print_hexaup(unsigned int n);
 int print_hexalow(unsigned int n);
 int print_bi(unsigned int n);
+int _printstring(char *s);
 
 #endif
