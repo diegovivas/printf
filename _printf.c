@@ -10,6 +10,7 @@
 int _withformat2(char c, int count, va_list valist)
 {
 	int j;
+	unsigned int k;
 
 	switch (c)
 	{
@@ -23,6 +24,11 @@ int _withformat2(char c, int count, va_list valist)
 			_putchar('0');
 		} else
 			count += print_number(j);
+		break;
+	case 'b':
+		k = va_arg(valist, unsigned int);
+
+		count = print_bi(k);
 		break;
 	default:
 		count += 2;
