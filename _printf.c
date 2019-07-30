@@ -11,7 +11,7 @@
 int _withformat4(char c, int count, va_list valist)
 {
 	int i;
-	char si[6] = "(null)";
+	char si[5] = "(nil)";
 	uintptr_t p;
 	void *pi;
 
