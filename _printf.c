@@ -27,9 +27,12 @@ int _withformat4(char c, int count, va_list valist)
 				_putchar(si[i]);
 		}
 		else
-			_printf("0x");
-		count += 2;
+		{
+			_putchar('0');
+			_putchar('x');
+			count += 2;
 			count += print_hl(p);
+		}
 		break;
 	default:
 		count += 2;
