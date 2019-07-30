@@ -5,9 +5,9 @@
  *@n: unsigned int
  * Return: numer times print
  */
-int print_hl(intptr_t n)
+int print_hl(uintptr_t n)
 {
-	intptr_t quotient;
+	long int quotient;
 	int cont = 1, cont2, temp;
 	char hexadecimalNumber[100];
 	int count = 0;

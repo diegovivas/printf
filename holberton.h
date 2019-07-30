@@ -14,5 +14,5 @@ int print_bi(unsigned int n);
 int _printstring(char *s);
 int rot13(char *point);
 int print_rev(char *);
-int print_hl(intptr_t n);
+int print_hl(uintptr_t n);
 #endif
