@@ -1,27 +1,29 @@
 #include "holberton.h"
 /**
  * rot13 - encode rot13
- * @s: string to encode
+ * @a: string to encode
  * Return: (count)
  */
-int rot13(char *s)
+int rot13(char *a)
 {
-int a, b;
-char first[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-char second[52] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	int i, index;
+	int count = 0;
+	char arr[] =
+		"NOPQRSTUVWXYZABCDEFGHIJKLM      nopqrstuvwxyzabcdefghijklm";
 
-a = 0;
-while (s[a] != 0)
-{
-	for (b = 0; b < 52; b++)
+	i = 0;
+	index = 0;
+	while (a[i])
 	{
-		if (s[a] == first[b])
+		if ((a[i] >= 'A' && a[i] <= 'Z')
+		    || (a[i] >= 'a' && a[i] <= 'z'))
 		{
-			s[a] = second[b];
-			break;
+			index = a[i] - 65;
+			count += _putchar(arr[index]);
 		}
+		else
+			count += _putchar(a[i]);
+		i++;
 	}
-	a++;
-}
-return (_printstring(s));
+	return (count);
 }
