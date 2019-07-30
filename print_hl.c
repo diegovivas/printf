@@ -7,8 +7,9 @@
  */
 int print_hl(uintptr_t n)
 {
-	long int quotient;
-	int cont = 1, cont2, temp;
+	uintptr_t quotient, temp;
+
+	int cont = 1, cont2;
 	char hexadecimalNumber[100];
 	int count = 0;
 
