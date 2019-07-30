@@ -23,8 +23,11 @@ int _withformat4(char c, int count, va_list valist)
 		p = (uintptr_t)pi;
 		if (!pi)
 		{
-			for (i = 0; si[i]; i++, count++)
+			for (i = 0; si[i]; i++)
+			{
 				_putchar(si[i]);
+				count = 5;
+			}
 		}
 		else
 		{
