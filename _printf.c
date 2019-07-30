@@ -1,5 +1,44 @@
 #include "holberton.h"
 #include <stdarg.h>
+#include <stdint.h>
+/**
+ * _withformat4 - prints depending the format
+ * @c: the format sent by the main
+ * @count: characters printed;
+ * @valist: va_list args
+ * Return: @count the number of characters printed
+ */
+int _withformat4(char c, int count, va_list valist)
+{
+	int i;
+	char si[6] = "(null)";
+	uintptr_t p;
+	void *pi;
+
+
+	switch (c)
+	{
+	case 'p':
+		pi = va_arg(valist, void *);
+		p = (uintptr_t)pi;
+		if (!pi)
+		{
+			for (i = 0; si[i]; i++, count++)
+				_putchar(si[i]);
+		}
+		else
+			_printf("0x");
+		count += 2;
+			count += print_hl(p);
+		break;
+	default:
+		count += 2;
+		_putchar('%');
+		_putchar(c);
+	}
+	return (count);
+}
+
 /**
  * _withformat3 - prints depending the format
  * @c: the format sent by the main
@@ -36,9 +75,7 @@ int _withformat3(char c, int count, va_list valist)
 			count += print_rev(s);
 		break;
 		default:
-			count += 2;
-			_putchar('%');
-			_putchar(c);
+			count = _withformat4(c, count, valist);
 	}
 	return (count);
 }
