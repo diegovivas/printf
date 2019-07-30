@@ -1,49 +1,27 @@
 #include "holberton.h"
 /**
  * rot13 - encode rot13
- * @point: string to encode
+ * @s: string to encode
  * Return: (count)
  */
-int rot13(char *point)
+int rot13(char *s)
 {
-	int i = 0, j, count = 0, flag = 0;
+int a, b;
+char first[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+char second[52] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	char lett[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G',
-'H', 'I', 'J', 'K', 'L', 'M', 'N',
-'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-'V', 'W', 'X', 'Y', 'Z', 'a', 'b',
-'c', 'd', 'e', 'f', 'g', 'h', 'i',
-'j', 'k', 'l', 'm', 'n', 'o', 'p',
-'q', 'r', 's', 't', 'u', 'v', 'w',
-'x', 'y', 'z'};
-	char rot[] = {'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-'U', 'V', 'W', 'X', 'Y', 'Z', 'A',
-'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
-'J', 'K', 'L', 'M', 'n', 'o', 'p',
-'q', 'r', 's', 't', 'u', 'v', 'w',
-'x', 'y', 'z', 'a', 'b', 'c', 'd',
-'e', 'f', 'g', 'h', 'i', 'j', 'k',
-'l', 'm'};
-	if (!point)
+a = 0;
+while (s[a] != 0)
+{
+	for (b = 0; b < 52; b++)
 	{
-		point = "(null)";
-	}
-	while (point[i])
-	{
-		for (j = 0; j < 52; j++)
+		if (s[a] == first[b])
 		{
-			if (point[i] == lett[j])
-			{
-				_putchar(rot[j]);
-				count++;
-				flag = 1;
-				break;
-			}
+			s[a] = second[b];
+			break;
 		}
-		if (!flag)
-			_putchar(point[i]);
-		flag = 0;
-		i++;
 	}
-	return (count);
+	a++;
+}
+return (_printstring(s));
 }
