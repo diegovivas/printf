@@ -25,6 +25,16 @@ int _withformat3(char c, int count, va_list valist)
 		else
 			count += rot13(s);
 		break;
+	case 'r':
+		s = va_arg(valist, char *);
+		if (!s)
+		{
+			for (i = 0; si[i]; i++, count++)
+				_putchar(si[i]);
+		}
+		else
+			count += print_rev(s);
+		break;
 		default:
 			count += 2;
 			_putchar('%');
