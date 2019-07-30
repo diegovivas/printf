@@ -12,7 +12,7 @@ int _withformat4(char c, int count, va_list valist)
 {
 	int i;
 	char si[5] = "(nil)";
-	uintptr_t p;
+	intptr_t p;
 	void *pi;
 
 
@@ -20,7 +20,7 @@ int _withformat4(char c, int count, va_list valist)
 	{
 	case 'p':
 		pi = va_arg(valist, void *);
-		p = (uintptr_t)pi;
+		p = (intptr_t)pi;
 		if (!pi)
 		{
 			for (i = 0; si[i]; i++, count++)
