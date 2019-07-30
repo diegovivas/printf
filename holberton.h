@@ -12,5 +12,6 @@ int print_hexaup(unsigned int n);
 int print_hexalow(unsigned int n);
 int print_bi(unsigned int n);
 int _printstring(char *s);
+int rot13(char *point);
 
 #endif
