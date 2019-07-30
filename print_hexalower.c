@@ -6,34 +6,23 @@
  */
 int print_hexalow(unsigned int n)
 {
-	int i, j, remainder, count = 0;
-	unsigned int num_copy = n;
-	char *hexadecimal;
+	long int quotient;
+	int cont = 1, cont2, temp;
+	char hexadecimalNumber[100];
+	int count = 0;
 
-	if (n == 0)
-		return (_putchar('0'));
-	while (num_copy != 0)
+	quotient = n;
+	while (quotient != 0)
 	{
-		num_copy /= 16;
-		count++;
-	}
-	hexadecimal = malloc(count);
-	for (i = 0; n != 0; i++)
-	{
-		remainder = 0;
-		remainder = n % 16;
-		if (remainder < 10)
-		{
-			hexadecimal[i] = remainder + '0';
-		}
+		temp = quotient % 16;
+		if (temp < 10)
+			temp = temp + 48;
 		else
-		{
-			hexadecimal[i] = remainder + 'W';
-		}
-		n /= 16;
+			temp = temp + 87;
+		hexadecimalNumber[cont++] = temp;
+		quotient = quotient / 16;
 	}
-	for (j = i - 1; j >= 0; j--)
-		_putchar(hexadecimal[j]);
-	free(hexadecimal);
+	for (cont2 = cont - 1 ; cont2 > 0; cont2--, count++)
+		_putchar(hexadecimalNumber[cont2]);
 	return (count);
 }

@@ -7,18 +7,11 @@
  */
 int print_unsig(unsigned int n)
 {
-	int count = 0;
-	unsigned int num_copy = n;
+	static int count = 1;
 
-	if (n == 0)
-		count = 1;
-	while (num_copy != 0)
-	{
-		num_copy = num_copy / 10;
-		count++;
-	}
-	if (n >= 10)
+	count++;
+	if (n / 10) /*Remove the last digit and recur*/
 		print_unsig(n / 10);
-	_putchar (n % 10 + '0');
-	return (count);
+	_putchar(n % 10 + '0'); /* Print the last digit */
+	return (count - 1); /* one extra count (MACHETAZO LOL) */
 }
