@@ -63,4 +63,4 @@
 	</tr>
 </table>
 <br>
-<strong>Authors: <a href="https://twitter.com/micael_sosa" target="_blank">Michael Sosa</a> and <a href="https://twitter.com/rdiegovivas" target="_blank">Diego Vivas </a></strong><<small>for Holberton School 2019</small>
+<strong>Authors: <a href="https://twitter.com/micael_sosa" target="_blank">Michael Sosa</a> and <a href="https://twitter.com/rdiegovivas" target="_blank">Diego Vivas </a></strong><small>for Holberton School 2019</small>
