@@ -1,8 +1,8 @@
-.TH man 1 "july 2019" "1.0" "_printf man page"
+.TH man 3 "July 2019" "1.0" "_printf man page"
 .SH NAME
 .B _printf - format and print data
 .SH SYNOPSIS
-printf FORMAT [ARGUMENT]... 
+printf FORMAT [ARGUMENT]...
 .br
 printf OPTION
 .LP
@@ -49,7 +49,7 @@ int _withformat4(char c, int count, va_list valist);
 .SH DESCRIPTION
     printf ARGUMENT(s) according to FORMAT.
 .LP
-The functions in our _printf() family produce output according to a format as described below. the funcions _withformat(), _withformat2(), _withformat3() and _withformat4() works to search the different cases of format and find the correct function, they only work together with _printf. 
+The functions in our _printf() family produce output according to a format as described below. the funcions _withformat(), _withformat2(), _withformat3() and _withformat4() works to search the different cases of format and find the correct function, they only work together with _printf.
 .br
 Also functions like print_number(), printf_octa(), print_unsig(), print_hexaup(), print_hexalow(), print_hl() and print_bi() works to convert and print numbers.
 .br
@@ -82,8 +82,8 @@ the conversion specifiers and their meanings are:
               than the size of the array, the array must contain a terminating  null
               byte.
 .LP
- c      The  int  argument  is converted  to an char, and the resulting character is 
- 	written.  
+ c      The  int  argument  is converted  to an char, and the resulting character is
+ 	written.
 .LP
  o, u, x, X
               The unsigned int argument is converted to unsigned octal (o), unsigned
