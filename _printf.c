@@ -10,8 +10,6 @@
  */
 int _withformat4(char c, int count, va_list valist)
 {
-	int i;
-	char si[5] = "(nil)";
 	uintptr_t p;
 	void *pi;
 
@@ -21,14 +19,11 @@ int _withformat4(char c, int count, va_list valist)
 	case 'p':
 		pi = va_arg(valist, void *);
 		p = (uintptr_t)pi;
-		if (!pi)
+
+		if (pi == NULL)
 		{
-			for (i = 0; si[i]; i++)
-			{
-				_putchar(si[i]);
-				count++;
-			}
-			count -= 1;
+			_printf("(nil)");
+			count += 5;
 		}
 		else
 		{
