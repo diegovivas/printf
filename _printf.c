@@ -26,8 +26,9 @@ int _withformat4(char c, int count, va_list valist)
 			for (i = 0; si[i]; i++)
 			{
 				_putchar(si[i]);
-				count = 5;
+				count++;
 			}
+			count -= 1;
 		}
 		else
 		{
